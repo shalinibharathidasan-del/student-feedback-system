@@ -21,7 +21,7 @@ function requireLogin(req, res, next) {
 // requireRole('recruiter') or requireRole('student')
 const requireRole = (role) => (req, res, next) =>
   requireLogin(req, res, () => {
-    if (req.user.role !== role) return res.status(403).json({ error: `Only ${role}s can do this` })
+    if (req.user.role !== role) return res.status(403).json({ error: role === 'faculty' ? 'Only faculty can do this' : `Only ${role}s can do this` })
     next()
   })
 
