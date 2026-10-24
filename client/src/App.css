@@ -1,0 +1,45 @@
+body {
+  background-color: #f5f5fb;
+}
+
+.bg-indigo {
+  background-color: #4338ca;
+}
+
+.hero {
+  background: linear-gradient(135deg, #4338ca, #7c3aed);
+}
+
+.navbar .nav-link.active {
+  font-weight: 600;
+}
+
+.course-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.course-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.1);
+}
+
+/* Star rating */
+.stars {
+  color: #d1d5db;
+  line-height: 1;
+  letter-spacing: 2px;
+}
+
+.stars .on {
+  color: #f59e0b;
+}
+
+.star-btn {
+  background: none;
+  border: 0;
+  padding: 0;
+  color: inherit;
+  cursor: pointer;
+  font-size: inherit;
+  line-height: 1;
+}
