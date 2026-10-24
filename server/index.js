@@ -10,6 +10,7 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok' }))
 app.use('/api/auth', require('./routes/auth'))
 app.use('/api/courses', require('./routes/courses'))
 app.use('/api/feedback', require('./routes/feedback'))
+app.use('/api/faculty', require('./routes/faculty'))
 
 app.use('/api', (req, res) => res.status(404).json({ error: 'Not found' }))
 

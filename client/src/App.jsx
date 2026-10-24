@@ -7,13 +7,14 @@ import Register from './pages/Register'
 import Courses from './pages/Courses'
 import FeedbackForm from './pages/FeedbackForm'
 import MyFeedback from './pages/MyFeedback'
+import Dashboard from './pages/faculty/Dashboard'
+import CourseFeedback from './pages/faculty/CourseFeedback'
 
 // Home page depends on who is logged in
 function Home() {
   const { user, isStudent } = useAuth()
   if (!user) return <Navigate to="/login" replace />
-  if (isStudent) return <Courses />
-  return <div className="alert alert-info">Faculty dashboard is coming soon.</div>
+  return isStudent ? <Courses /> : <Dashboard />
 }
 
 function App() {
@@ -27,6 +28,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/feedback/:courseId" element={<ProtectedRoute role="student"><FeedbackForm /></ProtectedRoute>} />
           <Route path="/my-feedback" element={<ProtectedRoute role="student"><MyFeedback /></ProtectedRoute>} />
+          <Route path="/faculty/courses/:id" element={<ProtectedRoute role="faculty"><CourseFeedback /></ProtectedRoute>} />
           <Route path="*" element={<h3>Page not found</h3>} />
         </Routes>
       </main>

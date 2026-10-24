@@ -2,7 +2,7 @@ import { NavLink, useNavigate } from 'react-router-dom'
 import { useAuth } from '../context/AuthContext'
 
 function Navbar() {
-  const { user, isStudent, logout } = useAuth()
+  const { user, isStudent, isFaculty, logout } = useAuth()
   const navigate = useNavigate()
 
   const handleLogout = () => {
@@ -32,6 +32,9 @@ function Navbar() {
                 <li className="nav-item"><NavLink className="nav-link" to="/" end>Courses</NavLink></li>
                 <li className="nav-item"><NavLink className="nav-link" to="/my-feedback">My Feedback</NavLink></li>
               </>
+            )}
+            {isFaculty && (
+              <li className="nav-item"><NavLink className="nav-link" to="/" end>Dashboard</NavLink></li>
             )}
           </ul>
           <div className="d-flex align-items-center gap-2">
